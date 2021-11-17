@@ -10,6 +10,8 @@ import {TokenInterceptor} from './main/share/auth/token.interceptor';
 import {AuthGuard} from './main/share/auth/auth.guard';
 import {ToastComponentComponent} from './main/share/component/toast-component/toast-component.component';
 import {FeaturesModule} from './main/feature/features.module';
+import {NgMultiSelectDropDownModule} from "ng-multiselect-dropdown";
+
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import {FeaturesModule} from './main/feature/features.module';
     HttpClientModule,
     NgbModule,
     NgbModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgMultiSelectDropDownModule.forRoot()
   ],
   providers: [HttpClient, AuthGuard,
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }],

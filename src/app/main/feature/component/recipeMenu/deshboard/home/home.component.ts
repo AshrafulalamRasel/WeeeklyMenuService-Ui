@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from "@angular/router";
-import {AuthService} from "../../../../../share/services/auth.service";
+import {Router} from '@angular/router';
+import {AuthService} from '../../../../../share/services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -18,17 +18,17 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  gotoAddNewNoteForm(): void {
+  gotoAddNewRecipeForm(): void {
 
-    this.router.navigate(['home/add-new-diary']);
+    this.router.navigate(['home/recipe-create']);
   }
 
-  gotoAddNewMoreCategories(): void {
-    this.router.navigate(['home/categories']);
+  gotoAddWeeklyMenu(): void {
+    this.router.navigate(['home/weekly-menu-create']);
   }
 
   logout() {
-    localStorage.removeItem('token')
+    localStorage.removeItem('token');
     this.router.navigate(['']);
   }
 }

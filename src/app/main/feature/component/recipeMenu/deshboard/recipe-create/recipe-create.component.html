@@ -1,0 +1,56 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="recipeForm">
+  <div class="form-group">
+    <label for="recipeName">Recipe Name:</label>
+    <input [ngClass]="{ 'is-invalid': submitted && f.recipeName.errors }" class="form-control"
+           formControlName="recipeName" id="recipeName"
+           type="text"/>
+    <div *ngIf="submitted && f.recipeName.errors" class="invalid-feedback">
+      <div *ngIf="f.recipeName.errors.required">Recipe Name is required</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="recipeIngredients">Recipe Ingredients:</label>
+    <input [ngClass]="{ 'is-invalid': submitted && f.recipeIngredients.errors }" class="form-control"
+           formControlName="recipeIngredients" id="recipeIngredients"
+           type="text"/>
+    <div *ngIf="submitted && f.recipeIngredients.errors" class="invalid-feedback">
+      <div *ngIf="f.recipeIngredients.errors.required">Recipe Ingredients is required</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="recipeInstruction">Recipe Instruction:</label>
+    <input [ngClass]="{ 'is-invalid': submitted && f.recipeInstruction.errors }" class="form-control"
+           formControlName="recipeInstruction" id="recipeInstruction"
+           type="text"/>
+    <div *ngIf="submitted && f.recipeInstruction.errors" class="invalid-feedback">
+      <div *ngIf="f.recipeInstruction.errors.required">Recipe Instruction is required</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="nutritionalInformation">Nutritional Information:</label>
+    <input [ngClass]="{ 'is-invalid': submitted && f.nutritionalInformation.errors }" class="form-control"
+           formControlName="nutritionalInformation" id="nutritionalInformation"
+           type="text"/>
+    <div *ngIf="submitted && f.nutritionalInformation.errors" class="invalid-feedback">
+      <div *ngIf="f.nutritionalInformation.errors.required">Nutritional Information is required</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="classification">Classification:</label>
+    <input [ngClass]="{ 'is-invalid': submitted && f.classification.errors }" class="form-control"
+           formControlName="classification" id="classification"
+           type="text"/>
+    <div *ngIf="submitted && f.classification.errors" class="invalid-feedback">
+      <div *ngIf="f.classification.errors.required">Classification is required</div>
+    </div>
+  </div>
+  <button class="btn btn-primary mr-2">Save</button>
+  <button type="button" class="btn btn-info" [routerLink]="['/home']">Back</button>
+  <span>
+    <a> Please View  <a [routerLink]="['/home/recipe-list-view']">The Recipe List</a></a>
+  </span>
+
+</form>
+

@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
           }
           else if (this.authTokenHttpService.getAuthTokenScopes()[0] === 'ROLE_CUSTOMER') {
             localStorage.setItem('loginType', 'loginCustomer');
-            this.router.navigate(['/recipe-view']);
+            this.router.navigate(['customer/recipe-view']);
           }
         },
         error => {

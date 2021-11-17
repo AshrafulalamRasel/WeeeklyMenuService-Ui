@@ -1,0 +1,50 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="weeklyMenuForm">
+  <div class="form-group">
+    <label for="weekName">Week Name:</label>
+    <input [ngClass]="{ 'is-invalid': submitted && f.weekName.errors }" class="form-control"
+           formControlName="weekName" id="weekName"
+           type="text"/>
+    <div *ngIf="submitted && f.weekName.errors" class="invalid-feedback">
+      <div *ngIf="f.weekName.errors.required">Week Name is required</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="description">Description:</label>
+    <input [ngClass]="{ 'is-invalid': submitted && f.description.errors }" class="form-control"
+           formControlName="description" id="description"
+           type="text"/>
+    <div *ngIf="submitted && f.description.errors" class="invalid-feedback">
+      <div *ngIf="f.description.errors.required">Description is required</div>
+    </div>
+  </div>
+
+
+  <div class="form-group mb-4 row">
+    <label class="col-sm-3 col-form-label">Recipe Select</label>
+    <div class="col-sm-9">
+    <select [ngClass]="{ 'is-invalid': submitted && f.recipeIdList.errors }" class="form-control" multiple
+            formControlName="recipeIdList">
+      <option *ngFor="let recipe of getListRecipe;"
+              [value]="recipe.id">{{ recipe.recipeName }}</option>
+    </select>
+    </div>
+    <div *ngIf="submitted && f.recipeIdList.errors" class="invalid-feedback">
+      <div *ngIf="f.recipeIdList.errors.required">Category Type  is required</div>
+    </div>
+  <!--  <div class="col-sm-9">
+        <ng-multiselect-dropdown
+    [placeholder]="'select'"
+    [settings]="dropdownSettings"
+    [data]="dropdownList"
+    (onSelect)="onItemSelect($event)"
+    (onSelectAll)="onSelectAll($event)">
+  </ng-multiselect-dropdown>
+    </div>-->
+  </div>
+  <button class="btn btn-primary mr-2">Save</button>
+  <span>
+    <a> Please View  <a [routerLink]="['/home/weekly-menu-list']">Weekly Menu List</a></a>
+  </span>
+</form>
+

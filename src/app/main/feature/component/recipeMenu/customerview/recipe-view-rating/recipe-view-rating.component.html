@@ -1,1 +1,51 @@
-<p>recipe-view-rating works!</p>
+<div class="mt-4 text-center">
+  <table class="table table-striped">
+    <thead>
+    </thead>
+    <tbody>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Week name</th>
+      <th scope="col">Recipe name</th>
+      <th scope="col">Recipe Ingredients</th>
+      <th scope="col">Recipe Instruction</th>
+      <th scope="col">Nutritional Information</th>
+      <th scope="col">Rating</th>
+      <th scope="col">Comments</th>
+      <th scope="col"></th>
+    </tr>
+    <ng-container *ngFor="let data of getMenuListData; let i=index">
+      <tr>
+        <td  [attr.rowspan]="data.recipeList.length+1">{{i+1}}</td>
+        <td  [attr.rowspan]="data.recipeList.length+1">{{data.weekName}}</td>
+      </tr>
+      <tr *ngFor="let recipe of data.recipeList;">
+        <td>{{recipe.recipeName}}</td>
+        <td>{{recipe.recipeIngredients}}</td>
+        <td>{{recipe.recipeInstruction}}</td>
+        <td>{{recipe.nutritionalInformation}}</td>
+        <td class="ml-3">
+          <div>
+            <select class="form-select" aria-label="Default select example" formControlName="rating">
+              <option selected>Open this select menu</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+            </select>
+          </div>
+
+        <td class="ml-3">
+        <div class="ml-0">
+          <input type="text" class="form-control" placeholder="Add comments"
+                 aria-label="command" aria-describedby="basic-addon1"
+                 formControlName="command" id="command">
+        </div></td>
+
+        <td class="ml-3">
+          <button class="btn btn-primary m-1" (click)="addingRating(data.id ,recipe.id)">Submit</button>
+      </tr>
+
+    </ng-container>
+    </tbody>
+  </table>
+</div>

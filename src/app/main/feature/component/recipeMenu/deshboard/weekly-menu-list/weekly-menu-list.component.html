@@ -1,0 +1,32 @@
+<div class="mt-4 text-center">
+  <table class="table table-striped">
+    <thead>
+    </thead>
+    <tbody>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Week name</th>
+      <th scope="col">Recipe name</th>
+      <th scope="col">Recipe Ingredients</th>
+      <th scope="col">Recipe Instruction</th>
+      <th scope="col">Nutritional Information</th>
+      <th scope="col">Action</th>
+    </tr>
+    <ng-container *ngFor="let data of getMenuListData; let i=index">
+    <tr>
+      <td  [attr.rowspan]="data.recipeList.length+1">{{i+1}}</td>
+      <td  [attr.rowspan]="data.recipeList.length+1">{{data.weekName}}</td>
+    </tr>
+    <tr *ngFor="let recipe of data.recipeList;">
+      <td>{{recipe.recipeName}}</td>
+      <td>{{recipe.recipeIngredients}}</td>
+      <td>{{recipe.recipeInstruction}}</td>
+      <td>{{recipe.nutritionalInformation}}</td>
+      <td class="ml-3"><button class="btn btn-primary m-1" (click)="editCategoryById(data.id,recipe.id)">Edit</button>
+        <button class="btn btn-danger m-1" (click)="deleteCategoryById(data.id)">Delete</button></td>
+    </tr>
+
+    </ng-container>
+    </tbody>
+  </table>
+</div>
