@@ -29,4 +29,7 @@
     </ng-container>
     </tbody>
   </table>
+  <ngb-pagination  [collectionSize]="70" [(page)]="page" (click)="showPageIndex(page)" aria-label="Default pagination" ></ngb-pagination>
+
+  <p>current page is {{page}}</p>
 </div>

@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ToastService} from '../../../../../share/services/toast.service';
 import {AuthService} from '../../../../../share/services/auth.service';
 import {RecipeService} from '../../../services/recipe.service';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-recipe-create',
@@ -15,6 +16,7 @@ export class RecipeCreateComponent implements OnInit {
   constructor(
     public recipeService: RecipeService,
     public toastService: ToastService,
+    private router: Router,
     private authService: AuthService,
     private formBuilder: FormBuilder){ }
 
@@ -48,6 +50,8 @@ export class RecipeCreateComponent implements OnInit {
       .subscribe(
         data => {
           this.toastService.success('successfully.');
+          this.router.navigate(['/home/recipe-list-view']);
+          alert('ok');
         },
         error => {
 

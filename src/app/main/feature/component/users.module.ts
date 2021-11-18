@@ -15,6 +15,7 @@ import { RecipeUpdateComponent } from './recipeMenu/deshboard/recipe-update/reci
 import {NgMultiSelectDropDownModule} from "ng-multiselect-dropdown";
 import { WeeklyMenuListComponent } from './recipeMenu/deshboard/weekly-menu-list/weekly-menu-list.component';
 import { WeeklyListUpdateComponent } from './recipeMenu/deshboard/weekly-list-update/weekly-list-update.component';
+import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { WeeklyListUpdateComponent } from './recipeMenu/deshboard/weekly-list-up
     CommonModule,
     UsersRoutingModule,
     ReactiveFormsModule,
-    NgMultiSelectDropDownModule
+    NgMultiSelectDropDownModule,
+    NgbModule
   ]
 })
 export class UsersModule {
